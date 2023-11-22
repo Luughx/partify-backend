@@ -19,10 +19,10 @@ export const getUser = async (req, res) => {
 }
 
 export const postUser = async (req, res) => {
-    const { name, lastName, email, phone, address, rol, verified } = req.body
+    const { name, lastName, email, phone, password, address, rol, verified } = req.body
     
-    const [rows] = await pool.query("INSERT INTO users (name, lastName, email, phone, address, rol, verified) VALUES (?, ?, ?, ?, ?, ?, ?)", 
-    [name, lastName, email, phone, address, rol, verified])
+    const [rows] = await pool.query("INSERT INTO users (name, lastName, email, phone, address, rol, verified, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", 
+    [name, lastName, email, phone, address, rol, verified, password])
     
-    res.json({ "id": rows.insertId, name, lastName, email, phone, address, rol, verified })
+    res.json({ "id": rows.insertId, name, lastName, email, phone, password,address, rol, verified })
 }
