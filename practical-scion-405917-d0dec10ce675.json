@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "practical-scion-405917",
+  "private_key_id": "d0dec10ce675d94ac0598f88fcc27ee7381bcaa4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2/695/q4I0qiC\nigHKYhlMXWQFOt5XLroht/ejvk3wTMiM78/RDR0XUpdPF9VAwVhm8bky3kQki7pl\nmeL/g5yfbJJYzMtoUSvVBmFDglQPc4tmvK/RI6q2s8Wz0FcSXAS3fGC0B1TTeD7g\nGXs9ZO436cdXFjAnF3Xb+4LiqRAXW6YMiyFQ1QI254rpfE+JbO1Fe/LN8REQET0W\n+VRiyuVnnE9yO5eqHP5165bjABMp5Rs3qLpkrI0paJ6uOUm32fMVIHOYAdRM+M7l\nbdLU00fWtT5vRj4MY7zV/bSedx9WC0jxNPf+DtyV8h9ZPXs4jwdJVxLZYNbL2Kxp\nCxTnj8BdAgMBAAECggEAGLvyYdDUgQjIEezJVStxM+sji7lrN+lu6wPMius76ZDX\nQoVfV2goWHCnVt9nyXrYkgF2ALQeDbp9FSJ5lgOZ9cpc9Xeovo7KF97m4pMI/ZWm\nb9ptAR2LA2rE/Ara2fZqBMrg3zRmeLa1+OA40hGESTZl5RVwqLf5DCSwiiZDsIRO\nKKZeJLchALO553FC9zLMSd/ZgaOICFjKHefjvsHnyJiPKCGPDbGrweCi/RD0mBSW\nW8u/b4LYRDdC7EP+147elTmAQhXgkh7jFr2DtEzxdnQ9PNRRWlx3RDyhlLHj/lkP\nIdKV6Q588ibVBexZUTzRtA45LFgvun4E3ziAhtnBWQKBgQDZACJcESQTs+GfwBPt\n42TTxw29+/7PVAOQpauy2mMUt+a4l4U6GLB3fv+rxuKIYbd4DwlnrP1bgwTi/RcJ\n9AFnTPHGJWgnMT9nPqzIAqXOu/ZVxxAnvrIl1ZL9QmwjC3+jIw3IuBCd4V5pghaj\n6mXx9MBC4mr4Z0nyCR96Vw3lmwKBgQDX4y6Zk+2Sq884slyxobQSbDgfZAlxxUcd\nP/DtshcNP0bZmCmzp7bRMaLGeQDEYSSbk2Choxlha610Q4ROHM9LNzcho6tYJB77\n3RHG99hW2JKG07+IRGScICcJZf/7w5udoT/9K5/bJ2A7zQ4CNJvKc/oi80eY1ri1\ntvyL9aaNZwKBgCFXye/HmnmEjEiVpPpKlHWOAmiMzexhhmK1chp7P/ow/7yhW5E/\nte3Gj9Z/KtO14BEMjm9lv1BOY3PVW7Ll0UlkI0pE+Sn8gTeGA9p/vaZ0bzdi7PKO\ndKUnmfxcNm10GNqiSj3rOnJn7K/dk0kAfUWeS+R7EeC1TkFocXPE6Je9AoGBAM0J\nXEHKJ/GMMaP0amreXCq/E1Jk7T9bkR3rk4P9Bz2yojSY+spA+DWYgbMkSyE37c/A\nWh9JyxombTelxCt32zzhdQAC9QIiVDb7EB47WAGrcQaSZy8hXbiWJN0dPdC8R7ie\n5Cor24gFzrUdHDfmBSxzl9bH3XEARa932kWHCibzAoGAUVBryMr3CLoOGaf0unFj\nbUhDNDlCtfsXAF+JTFmX0kXvv2GyOQQ9YmOvetsGJNe/Gp9F30sPpNFD2A14vvUX\nNLS7WPBmjz/iZCM+FA1i5D3wYvBkJPRTwsXx5K849ZCdeoS1ajGeYUoCty2Da0hT\ngHjDBK62L2ed8sgqR3tqpgE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "test-partify-storage@practical-scion-405917.iam.gserviceaccount.com",
+  "client_id": "100769342828725332108",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/test-partify-storage%40practical-scion-405917.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
