@@ -1,6 +1,7 @@
 import { pool } from "../config/database.js"
 import lodash from "lodash"
 import bycrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export const getUsers = async (req, res) => {
     const [rows] = await pool.query("SELECT * FROM users")
@@ -9,9 +10,8 @@ export const getUsers = async (req, res) => {
 }
 
 export const test = async (req, res) => {
-    const compare = await bycrypt.compare("123", "$2a$10$DMmiBO/9yy39vQIZLKotSOQe6FgK2vhb9qf29NPIno8WSttUrC/mq")
-
-    console.log(compare)
+   
+    console.log(req.files)
 
     res.json(true)
 }
@@ -46,6 +46,16 @@ export const postLogin = async (req, res) => {
     if (!compare) return res.json({
         "message": "La contraseña no es correcta"
     })
+
+    console.log(rows[0].id)
+
+    const token = jwt.sign({
+        id: rows[0].id
+    }, `${process.env.SECRET}`, {
+        expiresIn:"30d"
+    })
+
+    req.session.token = token
     
     res.json(true)
 }

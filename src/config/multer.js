@@ -13,4 +13,4 @@ const storage = multer.diskStorage({
     }
 })
 
-export default multer({storage: multer.memoryStorage()})
+export default multer({ storage })
