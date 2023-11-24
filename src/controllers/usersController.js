@@ -31,6 +31,10 @@ export const getUser = async (req, res) => {
 export const postLogin = async (req, res) => {
     const { email, password } = req.body
 
+    if (req.session.token) return res.json({
+        "message": "Sesión ya iniciada"
+    })
+
     if (!email || !password) return res.json({
         "message": "Datos invalidos"
     }) 
@@ -47,10 +51,9 @@ export const postLogin = async (req, res) => {
         "message": "La contraseña no es correcta"
     })
 
-    console.log(rows[0].id)
-
     const token = jwt.sign({
-        id: rows[0].id
+        id: rows[0].id,
+        rol: rows[0].rol
     }, `${process.env.SECRET}`, {
         expiresIn:"30d"
     })
@@ -62,6 +65,10 @@ export const postLogin = async (req, res) => {
 
 export const postSignup = async (req, res) => {
     const { name, lastName, email, phone, password, address } = req.body
+
+    if (req.session.token) return res.json({
+        "message": "Sesión ya iniciada"
+    })
 
     if (!name || !lastName || !email || !phone || !password) return res.json({
         "message": "Datos invalidos"
