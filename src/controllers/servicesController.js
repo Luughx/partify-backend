@@ -1,8 +1,8 @@
 import { pool } from "../config/database.js"
 import { Storage } from "@google-cloud/storage"
-import { format } from "util"
 import lodash from "lodash"
 import jwt from "jsonwebtoken"
+import { compressAndUpload } from "../functions/compressAndUpload.js"
 
 export const getServices = async (req, res) => {
     const [rows] = await pool.query("SELECT * FROM services")
@@ -13,9 +13,7 @@ export const getServices = async (req, res) => {
 export const postService = async (req, res) => {
     const { name, description, category, price } = req.body
 
-    if (!req.session.token) return res.json({
-        "message": "Sesión no iniciada"
-    })
+    if (!req.session.token) return res.json({ "message": "Sesión no iniciada" })
 
     const calendary = {
         "fechas": [
@@ -24,17 +22,12 @@ export const postService = async (req, res) => {
         ]
     }
     
-    if (!name || !description || !category || !calendary || !price || !req.files) return res.json({
-        "message": "Datos invalidos"
-    })
+    if (!name || !description || !category || !calendary || !price || !req.files) return res.json({ "message": "Datos invalidos" })
 
     const decoded = jwt.verify(req.session.token, `${process.env.SECRET}`)
     const [rowsSuppliers] = await pool.query("SELECT * FROM suppliers WHERE idUser=?", [decoded.id])
 
-
-    if (rowsSuppliers.length == 0) return res.json({
-        "message": "Proveedor no encontrado"
-    })
+    if (rowsSuppliers.length == 0) return res.json({ "message": "Proveedor no encontrado" })
 
     const supplierIdEsc = lodash.escape(rowsSuppliers[0].id)
     const nameEsc = lodash.escape(name)
@@ -55,14 +48,12 @@ export const postService = async (req, res) => {
         const bucket = storage.bucket(bucketName)
 
         if (req.files.thumbnail) {
-            const thumbnailUpload = await bucket.upload(req.files.thumbnail[0].path, {destination: `${nameEsc}/${req.files.thumbnail[0].filename}`})
-            UriThumbnail = format(`https://storage.googleapis.com/${bucket.name}/${nameEsc}/${req.files.thumbnail[0].filename}`)
+            UriThumbnail = await compressAndUpload(req.files.thumbnail[0].path, bucket, nameEsc)
         }
     
         if (req.files.image) {
             for (let i=0; i < req.files.image.length; i++) {
-                const temporalUpload = await bucket.upload(req.files.image[i].path, {destination: `${nameEsc}/${req.files.image[i].filename}`})
-                const temporalUri = format(`https://storage.googleapis.com/${bucket.name}/${nameEsc}/${req.files.image[i].filename}`)
+                const temporalUri = await compressAndUpload(req.files.image[i].path, bucket, nameEsc)
                 uriImages[i]= temporalUri
             }
         }
